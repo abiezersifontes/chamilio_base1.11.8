@@ -1,0 +1,310 @@
+#hotspot-container {
+    position: relative;
+}
+#hotspot-container svg {
+    
+}
+#hotspot-container #hotspot-context-menu {
+    position: absolute;
+}
+
+.input-group.hotspot-0 .fa-square,
+.hotspot-color-0.fa.fa-square {
+   color: rgb(66, 113, 181);
+}
+.input-group.hotspot-1 .fa-square,
+.hotspot-color-1.fa.fa-square {
+   color: rgb(254, 142, 22);
+}
+.input-group.hotspot-2 .fa-square,
+.hotspot-color-2.fa.fa-square {
+   color: rgb(69, 199, 240);
+}
+.input-group.hotspot-3 .fa-square,
+.hotspot-color-3.fa.fa-square {
+   color: rgb(188, 214, 49);
+}
+.input-group.hotspot-4 .fa-square,
+.hotspot-color-4.fa.fa-square {
+   color: rgb(214, 49, 115);
+}
+.input-group.hotspot-5 .fa-square,
+.hotspot-color-5.fa.fa-square {
+   color: rgb(215, 215, 215);
+}
+.input-group.hotspot-6 .fa-square,
+.hotspot-color-6.fa.fa-square {
+   color: rgb(144, 175, 221);
+}
+.input-group.hotspot-7 .fa-square,
+.hotspot-color-7.fa.fa-square {
+   color: rgb(175, 134, 64);
+}
+.input-group.hotspot-8 .fa-square,
+.hotspot-color-8.fa.fa-square {
+   color: rgb(79, 146, 66);
+}
+.input-group.hotspot-9 .fa-square,
+.hotspot-color-9.fa.fa-square {
+   color: rgb(244, 235, 36);
+}
+.input-group.hotspot-10 .fa-square,
+.hotspot-color-10.fa.fa-square {
+   color: rgb(237, 32, 36);
+}
+.input-group.hotspot-11 .fa-square,
+.hotspot-color-11.fa.fa-square {
+   color: rgb(59, 59, 59);
+}
+
+.input-group.hotspot-0.active {
+    border-color: rgb(66, 113, 181);
+    box-shadow: 1px 1px 10px rgb(66, 113, 181);
+    border-radius: 4px;
+}
+.input-group.hotspot-0.active .input-group-addon {
+    border-color: rgb(66, 113, 181);
+}
+.input-group.hotspot-0.active select {
+    border-color: rgb(66, 113, 181);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-1.active {
+    border-color: rgb(254, 142, 22);
+    box-shadow: 1px 1px 10px rgb(254, 142, 22);
+    border-radius: 4px;
+}
+.input-group.hotspot-1.active .input-group-addon {
+    border-color: rgb(254, 142, 22);
+}
+.input-group.hotspot-1.active select {
+    border-color: rgb(254, 142, 22);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-2.active {
+    border-color: rgb(69, 199, 240);
+    box-shadow: 1px 1px 10px rgb(69, 199, 240);
+    border-radius: 4px;
+}
+.input-group.hotspot-2.active .input-group-addon {
+    border-color: rgb(69, 199, 240);
+}
+.input-group.hotspot-2.active select {
+    border-color: rgb(69, 199, 240);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-3.active {
+    border-color: rgb(188, 214, 49);
+    box-shadow: 1px 1px 10px rgb(188, 214, 49);
+    border-radius: 4px;
+}
+.input-group.hotspot-3.active .input-group-addon {
+    border-color: rgb(188, 214, 49);
+}
+.input-group.hotspot-3.active select {
+    border-color: rgb(188, 214, 49);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-4.active {
+    border-color: rgb(214, 49, 115);
+    box-shadow: 1px 1px 10px rgb(214, 49, 115);
+    border-radius: 4px;
+}
+.input-group.hotspot-4.active .input-group-addon {
+    border-color: rgb(214, 49, 115);
+}
+.input-group.hotspot-4.active select {
+    border-color: rgb(214, 49, 115);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-5.active {
+    border-color: rgb(215, 215, 215);
+    box-shadow: 1px 1px 10px rgb(215, 215, 215);
+    border-radius: 4px;
+}
+.input-group.hotspot-5.active .input-group-addon {
+    border-color: rgb(215, 215, 215);
+}
+.input-group.hotspot-5.active select {
+    border-color: rgb(215, 215, 215);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-6.active {
+    border-color: rgb(144, 175, 221);
+    box-shadow: 1px 1px 10px rgb(144, 175, 221);
+    border-radius: 4px;
+}
+.input-group.hotspot-6.active .input-group-addon {
+    border-color: rgb(144, 175, 221);
+}
+.input-group.hotspot-6.active select {
+    border-color: rgb(144, 175, 221);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-7.active {
+    border-color: rgb(175, 134, 64);
+    box-shadow: 1px 1px 10px rgb(175, 134, 64);
+    border-radius: 4px;
+}
+.input-group.hotspot-7.active .input-group-addon {
+    border-color: rgb(175, 134, 64);
+}
+.input-group.hotspot-7.active select {
+    border-color: rgb(175, 134, 64);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-8.active {
+    border-color: rgb(79, 146, 66);
+    box-shadow: 1px 1px 10px rgb(79, 146, 66);
+    border-radius: 4px;
+}
+.input-group.hotspot-8.active .input-group-addon {
+    border-color: rgb(79, 146, 66);
+}
+.input-group.hotspot-8.active select {
+    border-color: rgb(79, 146, 66);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-9.active {
+    border-color: rgb(244, 235, 36);
+    box-shadow: 1px 1px 10px rgb(244, 235, 36);
+    border-radius: 4px;
+}
+.input-group.hotspot-9.active .input-group-addon {
+    border-color: rgb(244, 235, 36);
+}
+.input-group.hotspot-9.active select {
+    border-color: rgb(244, 235, 36);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-10.active {
+    border-color: rgb(237, 32, 36);
+    box-shadow: 1px 1px 10px rgb(237, 32, 36);
+    border-radius: 4px;
+}
+.input-group.hotspot-10.active .input-group-addon {
+    border-color: rgb(237, 32, 36);
+}
+.input-group.hotspot-10.active select {
+    border-color: rgb(237, 32, 36);
+    border-left-color: #CCC;
+}
+.input-group.hotspot-11.active {
+    border-color: rgb(59, 59, 59);
+    box-shadow: 1px 1px 10px rgb(59, 59, 59);
+    border-radius: 4px;
+}
+.input-group.hotspot-11.active .input-group-addon {
+    border-color: rgb(59, 59, 59);
+}
+.input-group.hotspot-11.active select {
+    border-color: rgb(59, 59, 59);
+    border-left-color: #CCC;
+}
+
+.input-group.hotspot-0 select:focus,
+.input-group.hotspot-1 select:focus,
+.input-group.hotspot-2 select:focus,
+.input-group.hotspot-3 select:focus,
+.input-group.hotspot-4 select:focus,
+.input-group.hotspot-5 select:focus,
+.input-group.hotspot-6 select:focus,
+.input-group.hotspot-7 select:focus,
+.input-group.hotspot-8 select:focus,
+.input-group.hotspot-9 select:focus,
+.input-group.hotspot-10 select:focus,
+.input-group.hotspot-11 select:focus {
+    box-shadow: none;
+}
+.input-group.hotspot-0 select,
+.input-group.hotspot-1 select,
+.input-group.hotspot-2 select,
+.input-group.hotspot-3 select,
+.input-group.hotspot-4 select,
+.input-group.hotspot-5 select,
+.input-group.hotspot-6 select,
+.input-group.hotspot-7 select,
+.input-group.hotspot-8 select,
+.input-group.hotspot-9 select,
+.input-group.hotspot-10 select,
+.input-group.hotspot-11 select {
+    transition: none;
+    border-color: #CCC;
+}
+
+svg .hotspot-0,
+svg .hotspot-1,
+svg .hotspot-2,
+svg .hotspot-3,
+svg .hotspot-4,
+svg .hotspot-5,
+svg .hotspot-6,
+svg .hotspot-7,
+svg .hotspot-8,
+svg .hotspot-9,
+svg .hotspot-10,
+svg .hotspot-11 {
+    stroke-width: 2;
+}
+
+svg .hotspot-0 {
+    stroke: rgb(66, 113, 181);
+    fill: rgba(66, 113, 181, 0.75);
+}
+svg .hotspot-1 {
+    stroke: rgb(254, 142, 22);
+    fill: rgba(254, 142, 22, 0.75);
+}
+svg .hotspot-2 {
+    stroke: rgb(69, 199, 240);
+    fill: rgba(69, 199, 240, 0.75);
+}
+svg .hotspot-3 {
+    stroke: rgb(188, 214, 49);
+    fill: rgba(188, 214, 49, 0.75);
+}
+svg .hotspot-4 {
+    stroke: rgb(214, 49, 115);
+    fill: rgba(214, 49, 115, 0.75);
+}
+svg .hotspot-5 {
+    stroke: rgb(215, 215, 215);
+    fill: rgba(215, 215, 215, 0.75);
+}
+svg .hotspot-6 {
+    stroke: rgb(144, 175, 221);
+    fill: rgba(144, 175, 221, 0.75);
+}
+svg .hotspot-7 {
+    stroke: rgb(175, 134, 64);
+    fill: rgba(175, 134, 64, 0.75);
+}
+svg .hotspot-8 {
+    stroke: rgb(79, 146, 66);
+    fill: rgba(79, 146, 66, 0.75);
+}
+svg .hotspot-9 {
+    stroke: rgb(244, 235, 36);
+    fill: rgba(244, 235, 36, 0.75);
+}
+svg .hotspot-10 {
+    stroke: rgb(237, 32, 36);
+    fill: rgba(237, 32, 36, 0.75);
+}
+svg .hotspot-11 {
+    stroke: rgb(59, 59, 59);
+    fill: rgba(59, 59, 59, 0.75);
+}
+
+svg .hotspot-answer-point {
+    fill: rgba(0, 103, 124, 0.75);
+    stroke: rgb(0, 103, 124);
+    stroke-width: 1;
+    cursor: move;
+}
+
+svg .hotspot-answer-text {
+    cursor: move;
+    fill: #FFF;
+    font-family: sans-serif;
+}

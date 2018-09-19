@@ -1,0 +1,140 @@
+<?php
+/* For licensing terms, see /license.txt */
+
+/**
+ * @package chamilo.survey
+ *
+ * @author Patrick Cool <patrick.cool@UGent.be>, Ghent University: cleanup, refactoring and rewriting large parts of the code
+ *
+ * @version $Id: survey_invite.php 10680 2007-01-11 21:26:23Z pcool $
+ *
+ * @todo the answered column
+ */
+require_once __DIR__.'/../inc/global.inc.php';
+
+/** @todo this has to be moved to a more appropriate place (after the display_header of the code)*/
+if (!api_is_allowed_to_edit(false, true)) {
+    api_not_allowed(true);
+}
+
+// Database table definitions
+$table_survey = Database::get_course_table(TABLE_SURVEY);
+$table_survey_question = Database::get_course_table(TABLE_SURVEY_QUESTION);
+$table_survey_question_option = Database::get_course_table(TABLE_SURVEY_QUESTION_OPTION);
+$table_course = Database::get_main_table(TABLE_MAIN_COURSE);
+$table_user = Database::get_main_table(TABLE_MAIN_USER);
+$table_survey_invitation = Database::get_course_table(TABLE_SURVEY_INVITATION);
+$tool_name = get_lang('SurveyInvitations');
+
+// Getting the survey information
+$survey_id = Security::remove_XSS($_GET['survey_id']);
+$survey_data = SurveyManager::get_survey($survey_id);
+if (empty($survey_data)) {
+    api_not_allowed(true);
+}
+
+$urlname = strip_tags(
+    api_substr(api_html_entity_decode($survey_data['title'], ENT_QUOTES), 0, 40)
+);
+if (api_strlen(strip_tags($survey_data['title'])) > 40) {
+    $urlname .= '...';
+}
+
+// Breadcrumbs
+$interbreadcrumb[] = [
+    'url' => api_get_path(WEB_CODE_PATH).'survey/survey_list.php',
+    'name' => get_lang('SurveyList'),
+];
+$interbreadcrumb[] = [
+    'url' => api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey_id,
+    'name' => $urlname,
+];
+
+// Displaying the header
+Display::display_header($tool_name);
+
+// Getting all the people who have filled this survey
+$answered_data = SurveyManager::get_people_who_filled_survey($survey_id);
+if ($survey_data['anonymous'] == 1) {
+    echo Display::return_message(
+        get_lang('AnonymousSurveyCannotKnowWhoAnswered').' '.count(
+            $answered_data
+        ).' '.get_lang('PeopleAnswered')
+    );
+    $answered_data = [];
+}
+
+if (!isset($_GET['view']) || $_GET['view'] == 'invited') {
+    echo get_lang('ViewInvited').' | ';
+} else {
+    echo '	<a href="'.api_get_self().'?survey_id='.$survey_id.'&view=invited">'.
+        get_lang('ViewInvited').'</a> |';
+}
+if ($_GET['view'] == 'answered') {
+    echo get_lang('ViewAnswered').' | ';
+} else {
+    echo '	<a href="'.api_get_self().'?survey_id='.$survey_id.'&view=answered">'.
+        get_lang('ViewAnswered').'</a> |';
+}
+
+if ($_GET['view'] == 'unanswered') {
+    echo get_lang('ViewUnanswered');
+} else {
+    echo '	<a href="'.api_get_self().'?survey_id='.$survey_id.'&view=unanswered">'.
+        get_lang('ViewUnanswered').'</a>';
+}
+
+// Table header
+echo '<table class="data_table">';
+echo '	<tr>';
+echo '		<th>'.get_lang('User').'</th>';
+echo '		<th>'.get_lang('InvitationDate').'</th>';
+echo '		<th>'.get_lang('Answered').'</th>';
+echo '	</tr>';
+
+$course_id = api_get_course_int_id();
+$sessionId = api_get_session_id();
+$sessionCondition = api_get_session_condition($sessionId);
+
+$sql = "SELECT survey_invitation.*, user.firstname, user.lastname, user.email
+        FROM $table_survey_invitation survey_invitation
+        LEFT JOIN $table_user user
+        ON (survey_invitation.user = user.id AND survey_invitation.c_id = $course_id)
+        WHERE
+            survey_invitation.survey_code = '".Database::escape_string($survey_data['code'])."' $sessionCondition";
+
+$res = Database::query($sql);
+while ($row = Database::fetch_assoc($res)) {
+    if (!$_GET['view'] || $_GET['view'] == 'invited' ||
+        ($_GET['view'] == 'answered' && in_array($row['user'], $answered_data)) ||
+        ($_GET['view'] == 'unanswered' && !in_array($row['user'], $answered_data))
+    ) {
+        echo '<tr>';
+        if (is_numeric($row['user'])) {
+            $userInfo = api_get_user_info($row['user']);
+            echo '<td>';
+            echo UserManager::getUserProfileLink($userInfo);
+            echo '</td>';
+        } else {
+            echo '<td>'.$row['user'].'</td>';
+        }
+        echo '	<td>'.api_get_local_time($row['invitation_date']).'</td>';
+        echo '	<td>';
+
+        if (in_array($row['user'], $answered_data) && !api_get_configuration_value('hide_survey_reporting_button')) {
+            echo '<a href="'.api_get_path(WEB_CODE_PATH).'survey/reporting.php?action=userreport&survey_id='.$survey_id.'&user='.$row['user'].'">'.
+                get_lang('ViewAnswers').'</a>';
+        } else {
+            echo '-';
+        }
+
+        echo '	</td>';
+        echo '</tr>';
+    }
+}
+
+// Closing the table
+echo '</table>';
+
+// Footer
+Display::display_footer();
